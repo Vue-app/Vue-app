@@ -5,7 +5,7 @@ import MuseUI from 'muse-ui'
 import 'muse-ui/dist/muse-ui.css'
 import 'muse-ui/dist/theme-carbon.css'
 
-vue.usr(MuseUI)
+Vue.use(MuseUI)
 Vue.config.productionTip = false
 
 /* eslint-disable no-new */
