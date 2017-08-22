@@ -29,11 +29,13 @@
       </div>
       <p class="nomore" v-show="nomore">内容到底了</p>
     </mu-list>
-      <mu-infinite-scroll :scroller="scroller" :loading="loading" @load="loadMore" />
+
     </div>
     <div v-if="!items.length">
       <p>暂无话题</p>
     </div>
+
+    <mu-infinite-scroll :scroller="scroller" :loading="loading" @load="loadMore" />
   </div>
 </template>
 <script>
@@ -47,7 +49,6 @@
         styleBg: {
           backgroundColor: '#c5c5c7'
         },
-        activeTab: 'all',
         loading: false,
         scroller: null,
         nomore: false,
@@ -57,21 +58,12 @@
     },
     created () {
       this.getData()
-      this.$root.eventHub.$on('handleTabChange', (val) => {
-        this.handleTabChange(val)
-      })
     },
     mounted () {
       this.scroller = this.$el
+      console.log(this.$el)
     },
     methods: {
-      handleTabChange (val) {
-        this.page = 1
-        this.nomore = false
-        this.activeTab = val
-        this.url = 'https://www.vue-js.com/api/v1/topics?tab=' + val
-        this.getData()
-      },
       getData () {
         this.inloading = true
         axios.get(this.url).then((response) => {
@@ -96,7 +88,7 @@
               this.items = this.items.concat(res)
             })
             this.loading = false
-          }, 5000)
+          }, 1000)
         }
       }
     }
@@ -105,8 +97,7 @@
 
 <style lang="stylus" scoped>
   .contentList
-
-    padding 8rem 0 4rem
+    padding 4rem 0
     overflow auto
   .list
     width 100%
