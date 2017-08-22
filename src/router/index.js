@@ -7,7 +7,7 @@ export default new Router({
   mode: 'history',
   routes: [
     {
-      path: '/pages/index',
+      path: '/pages',
       name: 'index',
       component: index
     }
