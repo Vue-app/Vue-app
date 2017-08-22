@@ -47,6 +47,7 @@
         styleBg: {
           backgroundColor: '#c5c5c7'
         },
+        activeTab: 'all',
         loading: false,
         scroller: null,
         nomore: false,
@@ -56,12 +57,21 @@
     },
     created () {
       this.getData()
+      this.$root.eventHub.$on('handleTabChange', (val) => {
+        this.handleTabChange(val)
+      })
     },
     mounted () {
       this.scroller = this.$el
-      console.log(this.$el)
     },
     methods: {
+      handleTabChange (val) {
+        this.page = 1
+        this.nomore = false
+        this.activeTab = val
+        this.url = 'https://www.vue-js.com/api/v1/topics?tab=' + val
+        this.getData()
+      },
       getData () {
         this.inloading = true
         axios.get(this.url).then((response) => {
@@ -86,7 +96,7 @@
               this.items = this.items.concat(res)
             })
             this.loading = false
-          }, 1000)
+          }, 5000)
         }
       }
     }
