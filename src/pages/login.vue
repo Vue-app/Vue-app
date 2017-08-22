@@ -43,10 +43,11 @@
       },
       login () {
         let that = this
-        axios.post('https://www.vue-js.com/api.v1/accesstoken', {
+        axios.post('https://www.vue-js.com/api/v1/accesstoken', {
           accesstoken: that.val
         })
         .then(function (response) {
+          console.log(response)
           that.error = ''
           localStorage.setItem('accesstoken', that.val)
           localStorage.setItem('user_id', response.data.id)
@@ -74,7 +75,7 @@
 <style lang="stylus" scoped>
 .wrapper
   span
-    padding-left 9rem
+    padding-left 10.5rem
   a
     float right
     font-size 1rem
