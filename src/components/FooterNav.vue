@@ -18,7 +18,10 @@ export default {
     }
   },
   watch: {
-    '$route': 'facthData'
+    $route: 'facthData'
+  },
+  mounted () {
+    this.facthData()
   },
   methods: {
     handleChange (val) {
@@ -27,24 +30,24 @@ export default {
     facthData () {
       let accesstoken = localStorage.getItem('accesstoken')
       if (accesstoken) {
-        console.log(accesstoken)
-        this.url = '/Vue-app/src/pages/my'
-        console.log(this.url)
+        this.url = '../pages/my'
       } else {
-        this.url = '/Vue-app/src/pages/login'
+        this.url = '../pages/login'
+        console.log(this.url)
+        console.log(accesstoken)
       }
-      if (this.$route.path === '/') {
-        this.bottomNav = '首页'
-      }
-      if (this.$route.path === '/Vue-home/src/pages/message') {
-        this.bottomNav = '消息'
-      }
-      if (this.$route.path === '/Vue-home/src/pages/login' || this.$route.path === '../pages/my') {
-        this.bottomNav = '我的'
-      }
-      if (this.$route.path === '/Vue-home') {
-          
-      }
+//      if (this.$route.path === '/') {
+//        this.bottomNav = '首页'
+//      }
+//      if (this.$route.path === '../pages/message') {
+//        this.bottomNav = '消息'
+//      }
+//      if (this.$route.path === '../pages/login' || this.$route.path === '../pages/my') {
+//        this.bottomNav = '我的'
+//      }
+//      if (this.$route.path === '#') {
+//
+//      }
     }
   }
 }
