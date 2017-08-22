@@ -3,7 +3,7 @@
 > 构vue官方论坛 用vue社区提供的API，基于vue+vue-cli+vue-router+axios+webpack开发的vue论坛webapp
 
   UI用Muse-UI css用stylus
-
+  
 > 主要功能
 - [ ] 首页列表
 - [ ] 下拉加载
@@ -49,10 +49,3 @@ npm test
 ```
 
 For detailed explanation on how things work, checkout the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
-
-
-解决footerNav 点击问题 让其执行一次
-
- mounted () {
-    this.facthData()
-  },
