@@ -1,6 +1,7 @@
 <template>
   <div class="wrapper">
     <header-bar></header-bar>
+    <header-tabs></header-tabs>
     <conten-list></conten-list>
     <footer-nav></footer-nav>
   </div>
@@ -21,3 +22,6 @@
     }
   }
 </script>
+<style>
+
+</style>
