@@ -4,6 +4,9 @@
   </mu-appbar>
 </template>
 <script>
+  export default {
+    name: 'HeaderBar'
+  }
 </script>
 <style scoped>
   .HeaderBar {
