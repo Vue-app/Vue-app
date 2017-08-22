@@ -43,11 +43,10 @@
       },
       login () {
         let that = this
-        axios.post('https://www.vue-js.com/api/v1/accesstoken', {
+        axios.post('https://www.vue-js.com/api.v1/accesstoken', {
           accesstoken: that.val
         })
         .then(function (response) {
-          console.log(response)
           that.error = ''
           localStorage.setItem('accesstoken', that.val)
           localStorage.setItem('user_id', response.data.id)
@@ -55,8 +54,7 @@
           that.$router.push({
             path: '/Vue-app/src/pages/my'
           })
-        })
-        .catch(function (error) {
+        }).catch(function (error) {
           if (!that.val) {
             that.error = 'accesstoken不能为空'
           } else {
@@ -75,7 +73,7 @@
 <style lang="stylus" scoped>
 .wrapper
   span
-    padding-left 10.5rem
+    padding-left 9rem
   a
     float right
     font-size 1rem
