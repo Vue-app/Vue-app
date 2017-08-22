@@ -54,8 +54,7 @@
           that.$router.push({
             path: '/Vue-app/src/pages/my'
           })
-        })
-        .catch(function (error) {
+        }).catch(function (error) {
           if (!that.val) {
             that.error = 'accesstoken不能为空'
           } else {

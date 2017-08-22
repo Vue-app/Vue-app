@@ -29,13 +29,11 @@
       </div>
       <p class="nomore" v-show="nomore">内容到底了</p>
     </mu-list>
-
+      <mu-infinite-scroll :scroller="scroller" :loading="loading" @load="loadMore" />
     </div>
     <div v-if="!items.length">
       <p>暂无话题</p>
     </div>
-
-    <mu-infinite-scroll :scroller="scroller" :loading="loading" @load="loadMore" />
   </div>
 </template>
 <script>
@@ -97,7 +95,8 @@
 
 <style lang="stylus" scoped>
   .contentList
-    padding 4rem 0
+
+    padding 8rem 0 4rem
     overflow auto
   .list
     width 100%
