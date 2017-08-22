@@ -8,8 +8,8 @@
       <mu-text-field label="请输入accessToken" v-model="val" :errorText="error" hintText="accessToken" type="password" labelFloat /><br/>
       <mu-raised-button @click="login" label="登录" class="demo-raised-button" primary/><br/>
     </div>
-    <div class="get-aT">
-      <mu-raised-button icon="help outline" label="如何获取accessToken" class="demo-snackbar-button" @click="showSnackbar" />
+    <div class="get-at">
+      <mu-raised-button icon="help_outline" label="如何获取accessToken" class="demo-snackbar-button" @click="showSnackbar" />
       <mu-snackbar v-if="snackbar" message="登录vue.js中文社区,在设置页面可看到自己的accessToken" action="关闭" @actionClick="hideSnackbar" @close="hideSnackbar"/>
     </div>
     <footer-nav></footer-nav>
@@ -70,3 +70,23 @@
     }
   }
 </script>
+<style lang="stylus" scoped>
+.wrapper
+  span
+    padding-left 9rem
+  a
+    float right
+    font-size 1rem
+.login-key
+  text-align center
+  margin-top 10rem
+  .demo-raised-button
+    margin-top 3rem
+.get-at
+  text-align center
+  margin-top 1.3rem
+  font-size 1rem
+
+
+
+</style>

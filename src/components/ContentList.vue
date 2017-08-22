@@ -1,9 +1,9 @@
 <template>
+  <div>
   <div class="contentList">
     <div class="inloading" v-if="inloading">
       Loading...
     </div>
-    <div>
     <mu-list>
       <div class="list" v-for="(item,index) in items">
         <router-link to="#" :src="item.author.avatar_url" tag="img" alt="user"></router-link>
@@ -95,6 +95,7 @@
 
 <style lang="stylus" scoped>
   .contentList
+
     padding 8rem 0 4rem
     overflow auto
   .list
