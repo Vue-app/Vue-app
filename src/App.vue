@@ -1,15 +1,11 @@
 <template>
   <div id="app">
-    <footer-nav></footer-nav>
+    <router-view></router-view>
   </div>
 </template>
 <script>
-  import FooterNav from '@/components/FooterNav'
   export default {
-    name: 'app',
-    components: {
-      FooterNav
-    }
+    name: 'app'
 }
 </script>
 
