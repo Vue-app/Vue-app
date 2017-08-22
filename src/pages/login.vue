@@ -54,12 +54,11 @@
           that.$router.push({
             path: '/Vue-app/src/pages/my'
           })
-        })
-        .catch(function (error) {
+        }).catch(function (error) {
           if (!that.val) {
             that.error = 'accesstoken不能为空'
           } else {
-            console.log('error')
+            console.log(error)
             that.error = '输入错误,请重新输入'
             console.log(that.$route.matched)
             that.$route.matched[0].meta = {
