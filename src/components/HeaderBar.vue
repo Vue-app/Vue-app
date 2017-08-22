@@ -1,6 +1,7 @@
 <template>
   <mu-appbar class="HeaderBar">
     <img class="logo" src="" alt="" >
+    <mu-icon-button icon="send" slot="right"/>
   </mu-appbar>
 </template>
 <script>
@@ -13,5 +14,12 @@
     position: fixed;
     top: 0;
     height: 4rem;
+  }
+  .logo {
+    width: 4rem;
+    height: 4rem;
+    position: absolute;
+    left: 0;
+    top: 0;
   }
 </style>
