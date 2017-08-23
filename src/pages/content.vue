@@ -39,7 +39,7 @@
           </router-link>
           <strong>{{list.author.loginname}}</strong>
           <span class="comments-people-ups">
-            <mu-icon @click="goods(index)" value="thumb_up" :size="16" color="#a9a9a9"/> {{list.ups.length}}
+            <mu-icon @click="good(index)" value="thumb_up" :size="16" color="#a9a9a9"/> {{list.ups.length}}
           </span>
           <span class="comments-peopele-time">{{list.create_at | formatDate}}
           </span>
@@ -77,6 +77,7 @@
         },
         user_id: '',
         loginname: '',
+        collect: false,
         collectText: '收藏',
         commentReplyText: '',
         commentText: '',
@@ -114,11 +115,12 @@
         this.$router.go(-1)
       },
       good (index) {
-        let replyId = this.data.replise[index].id
-        axios.post('https://ww.vue-js.com/api/v1/reply/' + replyId + '/ups', {
+        if (!this.accesstoken) return
+        let replyId = this.data.replies[index].id
+        axios.post('https://www.vue-js.com/api/v1/reply/' + replyId + '/ups', {
           accesstoken: this.accesstoken
         }).then((response) => {
-          console.lof(response)
+          console.log(response)
           this.getData()
         })
       },
@@ -184,6 +186,7 @@
       hasCollected () {
         if (this.accesstoken) {
           axios.get('https://www.vue-js.com/api/v1/user/' + this.loginname).then((response) => {
+            console.log(response.data.data)
             let collecting = response.data.data.collect_topics
             let thisId = this.data.id
             collecting.find(function (item) {
@@ -198,7 +201,7 @@
         axios.post('https://www.vue-js.com/api/v1/topic/collect', {
           accesstoken: this.accesstoken,
           topic_id: this.data.id
-        }).them((response) => {
+        }).then((response) => {
           console.log(response)
         })
       },
@@ -256,6 +259,9 @@
           height 4rem
           cursor pointer
           top 0.4rem
+      .collect
+        float right
+        padding-right 2rem
       .content-text
         padding 1rem
       .comments-main
