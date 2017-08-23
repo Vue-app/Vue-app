@@ -4,7 +4,10 @@ import index from '../pages/index.vue'
 import message from '../pages/message.vue'
 import login from '../pages/login.vue'
 import my from '../pages/my.vue'
+import more from '../pages/more.vue'
+import publish from '../pages/publish'
 import content from '../pages/content.vue'
+
 Vue.use(Router)
 
 export default new Router({
@@ -29,6 +32,16 @@ export default new Router({
       path: '/Vue-app/src/pages/my',
       name: 'my',
       component: my
+    },
+    {
+      path: '/Vue-app/src/pages/more',
+      name: 'more',
+      component: more
+    },
+    {
+      path: '/Vue-app/src/pages/publish',
+      name: 'publish',
+      component: publis
     },
     {
       path: '/Vue-app/src/pages/content',

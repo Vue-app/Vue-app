@@ -1,7 +1,7 @@
 <template>
   <mu-appbar class="HeaderBar">
-    <img class="logo" src="" alt="" >
-    <mu-icon-button icon="send" slot="right"/>
+    <img class="logo" src="../assets/logo.png" alt="" >
+    <mu-icon-button icon="send" slot="right" to="/Vue-app/src/pages/publish"/>
   </mu-appbar>
 </template>
 <script>
