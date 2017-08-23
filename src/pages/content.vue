@@ -206,9 +206,10 @@
         })
       },
       collectOff () {
+        let that = this
         axios.post('https://www.vue-js.com/api/v1/topic/de_collect', {
-          accesstoken: this.accesstoken,
-          topic_id: this.data.id
+          accesstoken: that.accesstoken,
+          topic_id: that.data.id
         }).then((response) => {
           console.log(response)
         })
