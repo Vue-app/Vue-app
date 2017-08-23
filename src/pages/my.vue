@@ -10,7 +10,7 @@
       <div class="time">
         <p class="my-name">{{res.loginname}}</p>
         <p class="integral">积分：{{res.score}}</p>
-        <p class="registration time">注册时间：{{res.create_at | formatDate }}</p>
+        <p class="registration-time">注册时间：{{res.create_at | formatDate }}</p>
       </div>
     </div>
     <!--话题-->
@@ -111,7 +111,6 @@ export default {
 .my-information
   height 6rem
   padding-top .5rem
-
   img
     float left
     height 5rem
@@ -119,24 +118,19 @@ export default {
     margin-left 1rem
   .time
     float left
-    p
-      margin-left 1rem
     .my-name
-      font-size 1.4rem
+      margin 0
+      margin-left 1rem
+      padding-bottom .3rem
+      font-size 1.5rem
       font-weight bold
-      padding-bottom .2rem
     .integral
-      padding-bottom .2rem
-.list-item
-  padding-top 1rem
-.res-number
-  background-color: #f5f5f5;
-  font-size: 2rem block;
-  padding: 0 0.3rem;
-  border-radius: 100%;
-  position: absolute;
-  right: 4rem;
-  top: .8rem;
+      margin 0
+      margin-left 1rem
+      padding-bottom .1rem
+    .registration-time
+      margin 0
+      padding-left 1rem
 .chat_icon
   font-size 1.5rem
   font-weight bold
