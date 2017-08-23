@@ -4,6 +4,7 @@ import index from '../pages/index.vue'
 import message from '../pages/message.vue'
 import login from '../pages/login.vue'
 import my from '../pages/my.vue'
+import content from '../pages/content.vue'
 Vue.use(Router)
 
 export default new Router({
@@ -28,6 +29,16 @@ export default new Router({
       path: '/Vue-app/src/pages/my',
       name: 'my',
       component: my
+    },
+    {
+      path: '/Vue-app/src/pages/content',
+      name: 'content',
+      component: content
     }
+    // {
+    //   path: '/Vue-app/src/pages/people',
+    //   name: 'people',
+    //   component: people
+    // }
   ]
 })
