@@ -186,6 +186,7 @@
       hasCollected () {
         if (this.accesstoken) {
           axios.get('https://www.vue-js.com/api/v1/user/' + this.loginname).then((response) => {
+            console.log(response.data.data)
             let collecting = response.data.data.collect_topics
             let thisId = this.data.id
             collecting.find(function (item) {
@@ -259,6 +260,9 @@
           height 4rem
           cursor pointer
           top 0.4rem
+      .collect
+        float right
+        padding-right 2rem
       .content-text
         padding 1rem
       .comments-main
