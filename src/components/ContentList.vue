@@ -6,8 +6,8 @@
     </div>
     <mu-list>
       <div class="list" v-for="(item,index) in items">
-        <router-link to="#" :src="item.author.avatar_url" tag="img" alt="user"></router-link>
-      <router-link to="#" tag="div" class="content" >
+        <router-link :to="{path:'/vue-app/src/pages/people',query:{user:item.author.loginname}}" :src="item.author.avatar_url" tag="img" alt="user"></router-link>
+      <router-link :to="{path:'/vue-app/src/pages/content',query:{id:item.id}}" tag="div" class="content" >
       <div class="list-title">
         <span v-if="item.top">置顶</span>
         <span v-else-if="item.good">精华</span>
@@ -23,7 +23,7 @@
           <mu-icon value="visibility" :size="14" />
           {{item.visit_count}}
         </span>
-        <span>{{item.last_reply_at}}</span>
+        <span>{{item.last_reply_at | formatDate }}</span>
       </div>
       </router-link>
       </div>
