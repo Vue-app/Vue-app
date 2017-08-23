@@ -43,7 +43,7 @@
       },
       login () {
         let that = this
-        axios.post('https://www.vue-js.com/api.v1/accesstoken', {
+        axios.post('https://www.vue-js.com/api/v1/accesstoken', {
           accesstoken: that.val
         })
         .then(function (response) {
@@ -72,8 +72,9 @@
 </script>
 <style lang="stylus" scoped>
 .wrapper
-  span
-    padding-left 9rem
+  text-align center
+  .my-news-title
+    padding-left 2.5rem
   a
     float right
     font-size 1rem
