@@ -5,8 +5,9 @@ import message from '../pages/message.vue'
 import login from '../pages/login.vue'
 import my from '../pages/my.vue'
 import more from '../pages/more.vue'
-import publish from '../pages/publish'
+import publish from '../pages/publish.vue'
 import content from '../pages/content.vue'
+import people from '../pages/people.vue'
 
 Vue.use(Router)
 
@@ -41,17 +42,17 @@ export default new Router({
     {
       path: '/Vue-app/src/pages/publish',
       name: 'publish',
-      component: publis
+      component: publish
     },
     {
       path: '/Vue-app/src/pages/content',
       name: 'content',
       component: content
+    },
+    {
+      path: '/Vue-app/src/pages/people',
+      name: 'people',
+      component: people
     }
-    // {
-    //   path: '/Vue-app/src/pages/people',
-    //   name: 'people',
-    //   component: people
-    // }
   ]
 })
