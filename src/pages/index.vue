@@ -11,14 +11,12 @@
   import HeaderTabs from '../components/HeaderTabs.vue'
   import ContenList from '../components/ContentList.vue'
   import FooterNav from '../components/FooterNav.vue'
-  import axios from 'axios'
   export default {
     components: {
       FooterNav,
       HeaderBar,
       HeaderTabs,
       ContenList,
-      axios
     }
   }
 </script>

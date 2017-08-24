@@ -49,8 +49,10 @@
       this.getData()
     },
     methods: {
+
       getData () {
         let that = this
+        if (!this.accesstoken) return
         axios.get('https://www.vue-js.com/api/v1/messages?accesstoken=' + that.accesstoken)
           .then(function (response) {
             that.res = response.data.data
