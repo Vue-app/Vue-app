@@ -16,7 +16,7 @@
       FooterNav,
       HeaderBar,
       HeaderTabs,
-      ContenList,
+      ContenList
     }
   }
 </script>
