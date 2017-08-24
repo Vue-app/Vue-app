@@ -47,15 +47,10 @@
       axios
     },
     data () {
-      const list = []
-      for (let i = 0; i < 30; i++) {
-        list.push(`item ${i + 1}`)
-      }
       return {
 //        mu插件样式控制红线切换
         activeTab: 'tab1',
         accesstoken: '',
-        list,
         tab: 'ask',
         editorTitle: '',
         editorText: '',
@@ -85,15 +80,9 @@
       publishText () {
         let that = this
         // 检测输入是否符合要求
-        if (that.editorTitle.length < 10) {
+        if (that.editorTitle.length < 10 || that.editorText.length < 1) {
           that.publish = true
-          that.tipMsg = '话题标题字数不能小于10个'
-          setTimeout(function () {
-            that.publish = false
-          }, 2000)
-        } else if (that.editorText.length < 1) {
-          that.piblish = true
-          that.tipMsg = '文章内容不能为空'
+          that.tipMsg = '话题标题字数不能小于10个且文章内容不能为空'
           setTimeout(function () {
             that.publish = false
           }, 2000)
@@ -101,6 +90,7 @@
         // 使用markdown编辑器
         that.editorText = marked(this.editorText)
         // 发布上传
+        if (!that.editorText || !that.editorTitle) return
         axios.post('https://www.vue-js.com/api/v1/topics', {
           accesstoken: that.accesstoken,
           title: that.editorTitle,

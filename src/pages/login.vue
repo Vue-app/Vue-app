@@ -43,6 +43,7 @@
       },
       login () {
         let that = this
+        if (!that.val) return
         axios.post('https://www.vue-js.com/api/v1/accesstoken', {
           accesstoken: that.val
         })

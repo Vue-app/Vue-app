@@ -29,11 +29,11 @@
       </div>
       <p class="nomore" v-show="nomore">内容到底了</p>
     </mu-list>
-      <mu-infinite-scroll :scroller="scroller" :loading="loading" @load="loadMore" />
     </div>
     <div v-if="!items.length">
       <p>暂无话题</p>
     </div>
+    <mu-infinite-scroll :scroller="scroller" :loading="loading" @load="loadMore" />
   </div>
 </template>
 <script>
@@ -96,7 +96,7 @@
               this.items = this.items.concat(res)
             })
             this.loading = false
-          }, 5000)
+          }, 2000)
         }
       }
     }
