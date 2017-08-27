@@ -2,7 +2,7 @@
   <div class="wrapper">
     <mu-appbar class="header">
       <mu-icon-button @click="goback" icon="arrow_back" slot="left" />
-      <mu-icon-button  icon="email" to="/vue-app/dist/message" slot="right" />
+      <mu-icon-button  icon="email" to="/vue-app/src/pages/message" slot="right" />
       <p class="my-news-title">个人中心</p>
     </mu-appbar>
     <mu-list class="main">
