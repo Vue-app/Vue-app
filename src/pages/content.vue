@@ -85,6 +85,8 @@
         commentFalse: false
       }
     },
+    activated () {
+    },
     created () {
       this.accesstoken = localStorage.getItem('accesstoken')
       this.user_id = localStorage.getItem('user_id')

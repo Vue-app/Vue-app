@@ -1,10 +1,9 @@
 <template>
-  <div>
   <div class="contentList">
     <div class="inloading" v-if="inloading">
       Loading...
     </div>
-    <mu-list>
+    <mu-list >
       <div class="list" v-for="(item,index) in items">
         <router-link :to="{path:'/vue-app/src/pages/people',query:{user:item.author.loginname}}" :src="item.author.avatar_url" tag="img" alt="user"></router-link>
       <router-link :to="{path:'/vue-app/src/pages/content',query:{id:item.id}}" tag="div" class="content" >
@@ -27,32 +26,37 @@
       </div>
       </router-link>
       </div>
-      <p class="nomore" v-show="nomore">内容到底了</p>
+      <p class="nomore" v-if="nomore === 1" @click="loadMore">点击加载</p>
+      <p class="nomore" v-else-if="nomore === 2">正在加载...</p>
+      <p class="nomore" v-else="nomore">内容到底了</p>
     </mu-list>
-    </div>
     <div v-if="!items.length">
       <p>暂无话题</p>
     </div>
-    <mu-infinite-scroll :scroller="scroller" :loading="loading" @load="loadMore" />
-  </div>
+    <!--<mu-infinite-scroll :scroller="scroller" :loading="loading" @load="loadMore" />-->
+    <!--<div v-infinite-scroll="loadMore" infinite-scroll-disabled="busy" infinite-scroll-distance="10"></div>-->
+    </div>
 </template>
 <script>
-  import axios from 'axios'
   export default {
     name: 'ContentsList',
     data () {
       return {
-        items: [],
         url: 'https://www.vue-js.com/api/v1/topics?tab=all',
         styleBg: {
           backgroundColor: '#c5c5c7'
         },
         activeTab: 'all',
-        loading: false,
-        scroller: null,
-        nomore: false,
         inloading: false,
         page: 1
+      }
+    },
+    computed: {
+      items () {
+        return this.$store.state.contentList
+      },
+      nomore () {
+        return this.$store.state.nomore
       }
     },
     created () {
@@ -61,42 +65,32 @@
         this.handleTabChange(val)
       })
     },
+    activated () {
+    },
     mounted () {
-      this.scroller = this.$el
+//      this.getData()
+      console.log(this.$el)
     },
     methods: {
       handleTabChange (val) {
         this.page = 1
-        this.nomore = false
+        this.$store.dispatch('nomore', 1)
         this.activeTab = val
         this.url = 'https://www.vue-js.com/api/v1/topics?tab=' + val
         this.getData()
       },
       getData () {
         this.inloading = true
-        axios.get(this.url).then((response) => {
-          this.items = response.data.data
-          this.inloading = false
-        })
+        this.$store.dispatch('getList', this.url)
+        this.inloading = false
       },
       loadMore () {
-        console.log(1)
-        if (!this.nomore && !this.inloading) {
-          this.loading = true
+        this.$store.dispatch('nomore', 2)
+        if (this.nomore === 2 && !this.inloading) {
+          console.log(1)
           this.page += 1
           let url = this.url + '&page=' + this.page
-          setTimeout(() => {
-            axios.get(url).then((response) => {
-              let res = response.data.data
-              if (res.length === 0) {
-                this.loading = false
-                this.nomore = true
-                return
-              }
-              this.items = this.items.concat(res)
-            })
-            this.loading = false
-          }, 2000)
+          this.$store.dispatch('pageList', url)
         }
       }
     }
@@ -105,7 +99,7 @@
 
 <style lang="stylus" scoped>
   .contentList
-
+    height 100%
     padding 8rem 0 4rem
     overflow auto
   .list
@@ -141,4 +135,9 @@
         float left
       span:nth-child(2)
         float right
+  .nomore
+    width 100%
+    height 1rem
+    line-height 1rem
+    text-align center
 </style>
