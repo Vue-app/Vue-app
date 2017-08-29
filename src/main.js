@@ -16,7 +16,6 @@ Vue.config.productionTip = false
 // 注册过滤器
 /* eslint-disable no-new */
 Object.keys(filters).forEach(k => Vue.filter(k, filters[k]))
-
 new Vue({
   el: '#app',
   router,

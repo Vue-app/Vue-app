@@ -62,9 +62,6 @@
             console.log(error)
             that.error = '输入错误,请重新输入'
             console.log(that.$route.matched)
-            that.$route.matched[0].meta = {
-              requiresAuth: true
-            }
           }
         })
       }
