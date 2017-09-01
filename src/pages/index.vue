@@ -12,22 +12,11 @@
   import ContentList from '../components/ContentList.vue'
   import FooterNav from '../components/FooterNav.vue'
   export default {
-    data () {
-      return {
-      }
-    },
-    mounted () {
-    },
     components: {
       FooterNav,
       HeaderBar,
       HeaderTabs,
       ContentList
-    },
-    methods: {
-      loadMore () {
-        console.log(1)
-      }
     }
   }
 </script>
